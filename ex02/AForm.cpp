@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 17:00:25 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 17:20:56 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:36:59 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,19 @@
 #include "Bureaucrat.hpp"
 
 /* Default Constructor */
-AForm::AForm(): _isSigned(false), _signGrade(50), _execGrade(100)
+AForm::AForm(): _isSigned(false), _gradeToSign(50), _gradeToExecute(100)
 {}
 
 /* Custom Constructor */
-AForm::AForm(const std::string& name, int signGrade, int execGrade) : _name(name), _isSigned(false), _signGrade(50), _execGrade(100)
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(50), _gradeToExecute(100)
 {
     std::cout << YELLOW << name << RESET_COLOR " named Form was created, pending to be signed." << std::endl;
+    (void)gradeToSign;
+    (void)gradeToExecute;
 }
 
 /* Copy Constructor */
-AForm::AForm(Form const& copy): _name(copy._name), _isSigned(false), _signGrade(copy._signGrade), _execGrade(copy._execGrade)
+AForm::AForm(AForm const& copy): _name(copy._name), _isSigned(false), _gradeToSign(copy._gradeToSign), _gradeToExecute(copy._gradeToExecute)
 {
     std::cout << "Copy constructor called" << std::endl;
     // (void)copy;
@@ -52,12 +54,12 @@ AForm::AForm(Form const& copy): _name(copy._name), _isSigned(false), _signGrade(
 AForm::~AForm()
 {}
 
-void AForm::beSigned(Bureaucrat bureaucrat)
+void AForm::beSigned(Bureaucrat& bureaucrat)
 {
     try
     {
         /* If Bureaucrat's grade's valid [1-150] and high enough (closer to 1)*/
-        if (bureaucrat.getGrade() <= getSignGrade() 
+        if (bureaucrat.getGrade() <= getGradeToSign() 
             && bureaucrat.getGrade() >= 1 && bureaucrat.getGrade() <= 150 
             && _isSigned == false)
         {
@@ -91,22 +93,22 @@ void AForm::beSigned(Bureaucrat bureaucrat)
     }
 }
 
-const std::string Form::getName() const
+const std::string& AForm::getName() const
 {
     return(_name);
 }
 
-bool Form::getIsSigned() const
+bool AForm::getIsSigned() const
 {
     return(_isSigned);
 }
 
-int Form::getSignGrade() const
+int AForm::getGradeToSign() const
 {
-    return (_signGrade);
+    return (_gradeToSign);
 }
 
-int	Form::getExecGRade() const
+int	AForm::getGradeToExecute() const
 {
-    return (_execGrade);
+    return (_gradeToExecute);
 }

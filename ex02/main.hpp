@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 15:54:00 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 16:46:56 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:49:03 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@
 
 #include <string> 
 #include <iostream> //std::cout
+#include <stdlib.h> //std::srand
+#include <ctime> //std::ctime
+#include <fstream> //std::ofstream
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"

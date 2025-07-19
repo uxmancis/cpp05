@@ -6,7 +6,7 @@
 #    By: uxmancis <uxmancis>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/12 15:30:41 by uxmancis          #+#    #+#              #
-#    Updated: 2025/07/14 16:45:27 by uxmancis         ###   ########.fr        #
+#    Updated: 2025/07/19 12:56:27 by uxmancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ SRC =	main.cpp\
 OBJ = $(SRC:.cpp=.o)
 
 # Executable name
-NAME = cpp05_ex01
+NAME = cpp05_ex02
 
 # Make all rule
 all: $(NAME)

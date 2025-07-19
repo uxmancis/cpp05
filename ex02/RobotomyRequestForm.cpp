@@ -6,21 +6,27 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:31:11 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 17:14:12 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:53:44 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm()
+RobotomyRequestForm::RobotomyRequestForm() : AForm("ShrubberyCreationForm", 72, 45)
 {}
+
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("ShrubberyCreationForm", 72, 45)
+{
+    (void)target;
+}
 
 RobotomyRequestForm::~RobotomyRequestForm()
 {}
 
-virtual void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
-    checkExecutable(executor);
-
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
+{
+    // checkExecutable(executor);
+    (void)executor;
     std::cout << "🔧 * drilling noises * 🔧" << std::endl;
 
     std::srand(std::time(NULL));

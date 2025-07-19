@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:05:00 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 17:16:25 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:37:47 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class PresidentialPardonForm : public AForm
         ~PresidentialPardonForm(); /* Destructor */
 
         /* AForm base class (abstract) virtual function's implementation*/
-        virtual void execute(Bureaucrat const & executor) const;
+        void execute(Bureaucrat const & executor) const;
 };
 
 #endif

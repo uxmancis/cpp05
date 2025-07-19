@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:06:55 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 16:43:35 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:56:13 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,5 +94,10 @@ void Bureaucrat::executeForm(AForm const & form) const {
         std::cout << _name << " couldn’t execute " << form.getName()
                   << " because " << e.what() << std::endl;
     }
+}
+
+void Bureaucrat::signForm(AForm& form)
+{
+    form.beSigned(*this); //*this is used so that we send Bureaucrat object to form object
 }
 

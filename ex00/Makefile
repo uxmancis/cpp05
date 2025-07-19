@@ -6,7 +6,7 @@
 #    By: uxmancis <uxmancis>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/12 15:30:41 by uxmancis          #+#    #+#              #
-#    Updated: 2025/07/12 16:48:43 by uxmancis         ###   ########.fr        #
+#    Updated: 2025/07/19 14:03:21 by uxmancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ CC = c++
 CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 
 # Source files and object files
-SRC = main.cpp Bureaucrat.cpp GradeTooHighExcp.cpp GradeTooLowExcp.cpp
+SRC = main.cpp Bureaucrat.cpp
 OBJ = $(SRC:.cpp=.o)
 
 # Executable name

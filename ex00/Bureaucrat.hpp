@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:03:11 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/12 16:31:35 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 14:04:46 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 #define BUREAUCRAT_HPP
 
 #include "main.hpp"
-#include "GradeTooHighExcp.hpp"
-#include "GradeTooLowExcp.hpp"
 
 class Bureaucrat
 {
@@ -39,8 +37,33 @@ class Bureaucrat
         /* Grade manipulation */
         void                improveGrade(int grade);
         void                worsenGrade(int grade);
+
+        /****************************************************************************
+        * Subject tells us the following:
+        * "Exception classes do not have to be designed in Orthodox Canonical Form.
+        * Additionally, no more files than specified should be turned in in the project deliverable.
+        ***************************************************************************"*/
+        class GradeTooHighException : public std::exception
+        {
+            public:
+            virtual const char* what() const throw()
+            {
+                return "Grade too high! (Less than 1)";
+            }
+                
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+            virtual const char* what() const throw()
+            {
+                return "Grade too low! (More than 150)";
+            }
+                
+        };
 };
 
 #endif
 
 /* std::exception is the base class for standard exceptions. */
+

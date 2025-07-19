@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:04:11 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/12 16:31:39 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 13:59:17 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@
 
 #include <string> 
 #include <iostream> //std::cout
+#include <exception>
 
 #include "Bureaucrat.hpp"
-#include "GradeTooHighExcp.hpp"
-#include "GradeTooLowExcp.hpp"
 
 //Output stream overload (outside the class)
 std::ostream& operator<<(std::ostream& out, const Bureaucrat& b); //overload of the insertion (<<) to print

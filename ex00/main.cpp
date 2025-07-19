@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:28:00 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/12 16:49:57 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/19 12:39:49 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 
 int main(void)
 {
-    /* Test 1 */
+    /***************************** Test 1 *****************************/
 	try
 	{
 		Bureaucrat a("Alice", 2);
@@ -37,7 +37,11 @@ int main(void)
 		std::cerr << "Caught exception: " << e.what() << '\n';
 	}
 
-	/* Test 2 */
+
+
+
+	
+	/***************************** Test 2 *****************************/
 	try
 	{
         Bureaucrat b("Bob", 151); // should throw exception
@@ -47,7 +51,11 @@ int main(void)
         std::cerr << "Caught exception: " << e.what() << std::endl;
     }
 
-	/* Test 3: */
+
+
+
+	
+	/***************************** Test 3 *****************************/
 	try
 	{
         Bureaucrat c("Charlie", 149);
@@ -59,6 +67,5 @@ int main(void)
     catch (std::exception& e)
 	{
         std::cerr << "Caught exception: " << e.what() << std::endl;
-    }
-	
+	}
 }
