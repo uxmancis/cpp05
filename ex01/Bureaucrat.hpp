@@ -6,14 +6,23 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:03:11 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/12 18:01:56 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/28 16:02:16 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BUREAUCRAT_HPP
 #define BUREAUCRAT_HPP
 
-#include "main.hpp"
+#define GREEN "\033[0;92m"
+#define RED "\033[0;31m"
+#define AQUAMARINE "\033[0;96m"
+#define MAGENTA "\033[0;95m"
+#define YELLOW "\033[0;93m"
+#define RESET_COLOR "\033[0m"
+
+#include <string> 
+#include <iostream> //std::cout
+#include <exception>
 
 class Form;
 
@@ -26,6 +35,8 @@ class Bureaucrat
     
     public: /* Everything can be accessed from outside the class*/
         /*Canonical Orthodox 'The rule of 4': */
+
+        /** Overloading: Default constructor and constructor with parameters*/
         Bureaucrat(void); /* Default Constructor */
         Bureaucrat (const std::string& name, int grade); //Custom constructor
         Bureaucrat(const Bureaucrat& copy); /* Copy Constructor */
@@ -36,12 +47,41 @@ class Bureaucrat
         const std::string&  getName() const;
         int                 getGrade()  const;
 
-        /* Grade manipulation */
-        void                improveGrade(int grade);
-        void                worsenGrade(int grade);
+        /* Grade management */
+        void                improveGrade(int value, Bureaucrat bureaucrat);
+        void                worsenGrade(int value, Bureaucrat bureaucrat);
         void                signForm(Form& Form);
+
+        /****************************************************************************
+        * Subject tells us the following:
+        * "Exception classes do not have to be designed in Orthodox Canonical Form.
+        * Additionally, no more files than specified should be turned in in the project deliverable.
+        ***************************************************************************"*/
+        class GradeTooHighException : public std::exception
+        {
+            public:
+            virtual const char* what() const throw()
+            {
+                return "Grade too high! (Less than 1)";
+            }
+                
+        };
+        class GradeTooLowException : public std::exception
+        {
+            public:
+            virtual const char* what() const throw()
+            {
+                return "Grade too low! (More than 150)";
+            }
+                
+        };
 };
+
+//Output stream overload, Insertion operator (outside the class)
+std::ostream& operator<<(std::ostream& out, const Bureaucrat& b); //overload of the insertion (<<) to print
+
 
 #endif
 
 /* std::exception is the base class for standard exceptions. */
+

@@ -6,14 +6,14 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:51:57 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/12 18:21:07 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/07/28 17:16:34 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "main.hpp"
+class Bureaucrat;
 
 class Form
 {
@@ -37,8 +37,44 @@ class Form
 		int 				getSignGrade() const;
 		int					getExecGRade() const;
 
+		/* 3 Exceptions, same as Bureaucrat class*/
+		/* Class declaration */
+		class GradeTooHighException : public std::exception
+        {
+            public:
+				virtual const char* what() const throw()
+				{
+					return "Grade too high! (Less than 1)";
+				}
+                
+        };
+		
+		/* Class declaration */
+        class GradeTooLowException : public std::exception
+        {
+            public:
+				virtual const char* what() const throw()
+				{
+					return "Grade too low! (More than 150)";
+				}
+                
+        };
+
+		/* Class declaration */
+		class SignGradeRequirementNotMet : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Sign Grade Requirement NOT MET";
+				}
+		};
+
 		/* Oher member functions: */
-		void			beSigned(Bureaucrat Bureaucrat);
+		void			beSigned(Bureaucrat b);
 };
+
+std::ostream& operator<<(std::ostream& out, const Form& f); //overload of the insertion (<<) to print
+
 
 #endif
