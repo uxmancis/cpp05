@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:06:55 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/19 12:56:13 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:53:38 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Bureaucrat::Bureaucrat(const std::string& name, int grade) : _name(name), _grade
 }
 
 /*Copy Constructor*/
-Bureaucrat::Bureaucrat(Bureaucrat const & copy) : _name(copy._name), _grade(copy._grade)
+Bureaucrat::Bureaucrat(Bureaucrat const &copy) : _name(copy._name), _grade(copy._grade)
 {
     std::cout << "Copy constructor called" << std::endl;
     *this = copy;
@@ -41,7 +41,7 @@ Bureaucrat::Bureaucrat(Bureaucrat const & copy) : _name(copy._name), _grade(copy
 *       MyClass b;
 *       a = b
  */
-Bureaucrat &Bureaucrat::operator=(const Bureaucrat& copy)
+Bureaucrat &Bureaucrat::operator=(const Bureaucrat &copy)
 {
     if (this != &copy)
         _grade = copy._grade; //_mame is const, can't assign
@@ -76,19 +76,22 @@ std::ostream& operator<<(std::ostream& out, const Bureaucrat& b)
     return out;
 }
 
-const std::string& Bureaucrat::getName() const {
+const std::string& Bureaucrat::getName() const
+{
     return _name;
 }
 
-int Bureaucrat::getGrade() const {
+int Bureaucrat::getGrade() const
+{
     return _grade;
 }
 
-void Bureaucrat::executeForm(AForm const & form) const {
+void Bureaucrat::executeForm(const AForm &form) const
+{
     try
     {
         form.execute(*this);
-        std::cout << _name << " executed " << form.getName() << std::endl;
+        std::cout << _name << " bureaucrat" AQUAMARINE " executed " RESET_COLOR << form.getName() << "." << std::endl;
     }
     catch (std::exception& e) {
         std::cout << _name << " couldn’t execute " << form.getName()
@@ -96,7 +99,7 @@ void Bureaucrat::executeForm(AForm const & form) const {
     }
 }
 
-void Bureaucrat::signForm(AForm& form)
+void Bureaucrat::signForm(AForm &form)
 {
     form.beSigned(*this); //*this is used so that we send Bureaucrat object to form object
 }

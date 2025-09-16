@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 15:03:11 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/19 12:56:02 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:05:24 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,30 @@ class Bureaucrat
 
         /* New function: */
         void                executeForm(AForm const & form) const;
+
+        /****************************************************************************
+        * Subject tells us the following:
+        * "Exception classes do not have to be designed in Orthodox Canonical Form.
+        * Additionally, no more files than specified should be turned in in the project deliverable.
+        ***************************************************************************"*/
+       class GradeTooHighException : public std::exception
+       {
+           public:
+           virtual const char* what() const throw()
+           {
+               return "Grade too high! (Less than 1)";
+           }
+               
+       };
+       class GradeTooLowException : public std::exception
+       {
+           public:
+           virtual const char* what() const throw()
+           {
+               return "Grade too low! (More than 150)";
+           }
+               
+       };
 };
 
 #endif

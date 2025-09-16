@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 16:51:57 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/19 12:37:23 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:45:37 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,59 @@ class AForm
 		int					getGradeToExecute() const;
 
 		/* Oher member functions: */
-		void			beSigned(Bureaucrat& bureaucrat);
+		void				beSigned(Bureaucrat &bureaucrat);
+		void				execute(const Bureaucrat &executor) const;
 
+	protected:
 		/* Pure virtual function: */
-		virtual void	execute(Bureaucrat const & executor) const = 0;
+		virtual void		doExecute(const Bureaucrat &executor) const = 0;
+
+		/****************************************************************************
+        * Subject tells us the following:
+        * "Exception classes do not have to be designed in Orthodox Canonical Form.
+        * Additionally, no more files than specified should be turned in in the project deliverable.
+        ***************************************************************************"*/
+       /* Class declaration */
+		class GradeTooHighException : public std::exception
+        {
+            public:
+				virtual const char* what() const throw()
+				{
+					return "Grade too high! (Less than 1) - Exception";
+				}
+                
+        };
+		
+		/* Class declaration */
+        class GradeTooLowException : public std::exception
+        {
+            public:
+				virtual const char* what() const throw()
+				{
+					return "Grade too low! (More than 150) - Exception";
+				}
+                
+        };
+
+		/* Class declaration */
+		class SignGradeRequirementNotMet : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Sign Grade Requirement NOT MET - Exception";
+				}
+		};
+
+		/* Class declaration */
+		class NotSigned : public std::exception
+		{
+			public:
+				virtual const char* what() const throw()
+				{
+					return "Not Signed - Exception";
+				}
+		};
 };
 
 #endif

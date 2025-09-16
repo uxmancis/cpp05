@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 15:54:00 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/19 12:49:03 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 17:48:51 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,9 @@
 
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
-#include "GradeTooHighExcp.hpp"
-#include "GradeTooLowExcp.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-#include "SignGradeRequirementNotMet.hpp"
 
 
 

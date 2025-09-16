@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/12 17:00:25 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/19 12:36:59 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 19:11:25 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ AForm::AForm(): _isSigned(false), _gradeToSign(50), _gradeToExecute(100)
 {}
 
 /* Custom Constructor */
-AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(50), _gradeToExecute(100)
+AForm::AForm(const std::string& name, int gradeToSign, int gradeToExecute) : _name(name), _isSigned(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
-    std::cout << YELLOW << name << RESET_COLOR " named Form was created, pending to be signed." << std::endl;
+    std::cout << YELLOW << "                 " << name << RESET_COLOR " named Form was created, " YELLOW " pending to be signed." RESET_COLOR << std::endl;
     (void)gradeToSign;
     (void)gradeToExecute;
 }
@@ -49,13 +49,11 @@ AForm::AForm(AForm const& copy): _name(copy._name), _isSigned(false), _gradeToSi
 //     return *this;
 // }
 
-
-/* Destructor */
-AForm::~AForm()
-{}
-
-void AForm::beSigned(Bureaucrat& bureaucrat)
+void AForm::beSigned(Bureaucrat &bureaucrat)
 {
+    // std::cout << RED << "Bureaucrat's grade: " << bureaucrat.getGrade() << std::endl;
+    // std::cout << "Required grade to Sign: " << getGradeToSign() << RESET_COLOR << std::endl;
+    
     try
     {
         /* If Bureaucrat's grade's valid [1-150] and high enough (closer to 1)*/
@@ -93,6 +91,16 @@ void AForm::beSigned(Bureaucrat& bureaucrat)
     }
 }
 
+void AForm::execute(const Bureaucrat &executor) const
+{
+    if (!getIsSigned())
+        throw NotSigned();
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException();
+    doExecute(executor);
+}
+
+/* Getters */
 const std::string& AForm::getName() const
 {
     return(_name);
@@ -112,3 +120,7 @@ int	AForm::getGradeToExecute() const
 {
     return (_gradeToExecute);
 }
+
+/* Destructor */
+AForm::~AForm()
+{}

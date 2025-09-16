@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:01:19 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 17:14:36 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:49:25 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm& operator=(const ShrubberyCreationForm& copy); /* Copy Assignment Operator */
         ~ShrubberyCreationForm(); /* Destructor */
 
-        void execute(Bureaucrat const & executor) const;
+        void		doExecute(const Bureaucrat &executor) const;
 };
 
 #endif

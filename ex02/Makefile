@@ -6,7 +6,7 @@
 #    By: uxmancis <uxmancis>                        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/07/12 15:30:41 by uxmancis          #+#    #+#              #
-#    Updated: 2025/07/19 12:56:27 by uxmancis         ###   ########.fr        #
+#    Updated: 2025/09/16 18:11:41 by uxmancis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,12 +18,10 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98 #-fsanitize=address
 SRC =	main.cpp\
 		AForm.cpp\
 		Bureaucrat.cpp\
-		GradeTooHighExcp.cpp\
-		GradeTooLowExcp.cpp\
 		PresidentialPardonForm.cpp\
 		RobotomyRequestForm.cpp\
 		ShrubberyCreationForm.cpp\
-		SignGradeRequirementNotMet.cpp
+
 		
 OBJ = $(SRC:.cpp=.o)
 

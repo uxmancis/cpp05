@@ -6,7 +6,7 @@
 /*   By: uxmancis <uxmancis>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/07/14 16:03:59 by uxmancis          #+#    #+#             */
-/*   Updated: 2025/07/14 17:14:47 by uxmancis         ###   ########.fr       */
+/*   Updated: 2025/09/16 18:49:20 by uxmancis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm& operator=(const RobotomyRequestForm& copy); /* Copy Assignment Operator */
         ~RobotomyRequestForm(); /* Destructor */
 
-        void execute(Bureaucrat const & executor) const;
+        void		doExecute(const Bureaucrat &executor) const;
 };
 
 #endif
